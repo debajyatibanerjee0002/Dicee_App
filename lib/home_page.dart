@@ -7,20 +7,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int leftbutton = 1;
-  int rightbutton = 1;
+  int leftbutton = Random().nextInt(6) + 1;
+  int rightbutton = Random().nextInt(6) + 1;
 
-  void left() {
+  void randomValue() {
     setState(() {
       leftbutton = Random().nextInt(6) + 1;
       rightbutton = Random().nextInt(6) + 1;
-    });
-  }
-
-  void right() {
-    setState(() {
-      rightbutton = Random().nextInt(6) + 1;
-      leftbutton = Random().nextInt(6) + 1;
     });
   }
 
@@ -40,7 +33,7 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               child: FlatButton(
                 onPressed: () {
-                  left();
+                  randomValue();
                   print('left button got pressed');
                 },
                 child: Image.asset('assets/dice$leftbutton.png'),
@@ -49,7 +42,7 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               child: FlatButton(
                 onPressed: () {
-                  right();
+                  randomValue();
                   print('right button got pressed');
                 },
                 child: Image.asset('assets/dice$rightbutton.png'),
